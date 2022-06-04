@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Посты по вашей подписке
+{% endblock %}
+
+{% block content %}
+  {% include 'posts/switcher.html' %}
+  {% if page_obj %}
+    <h1>Посты по вашей подписке:</h1>
+  {% else %}
+    <h1>Вы пока ни на кого не подписаны.</h1> 
+  {% endif %}
+  {% for post in page_obj %}
+    {% include 'posts/post_card.html' %}
+  {% endfor %}
+  {% include 'posts/paginator.html' %}
+{% endblock %}
